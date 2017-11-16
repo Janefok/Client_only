@@ -14,6 +14,11 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Client
 TEMPLATE = app
 
+# Additional import path used to resolve QML modules in Qt Creator's code model
+QML_IMPORT_PATH = "C:\Qt\5.8\mingw53_32\qml\QtQuick\Controls.2\Material"
+QML_IMPORT_PATH = "C:\Users\darkk\Documents\GitHub\Konkurs\Client"
+# Additional import path used to resolve QML modules just for Qt Quick Designer
+#QML_DESIGNER_IMPORT_PATH =
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -38,11 +43,17 @@ HEADERS += \
 FORMS += \
         mainwindow.ui
 
-QML_IMPORT_PATH = "D:\Qt\5.8\mingw53_32\qml\QtQuick\Controls.2\Material"
-QML_IMPORT_PATH = "D:\Konkurs\Client"
+
 
 DISTFILES += \
     main.qml \
     MenuBar.qml \
     PersonMenu.qml \
-    ListViewMenu.qml
+    ListViewMenu.qml \
+    NewTabButton.qml
+
+QML_IMPORT_PATH = "C:\Qt\5.8\mingw53_32\qml\QtQuick\Controls.2\Material"
+QML_IMPORT_PATH = "C:\Users\darkk\Documents\GitHub\Konkurs\Client"
+
+
+

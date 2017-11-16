@@ -16,12 +16,11 @@ private:
 public:
     MyClient(const QString& strHost, int nPort, QWidget* pwgt = 0) ;
 
-   public slots:
+public slots:
     void slotSendToServer(QString str);
-
 private slots:
     void slotReadyRead   (                            );
-    void slotError       (QAbstractSocket::SocketError);
+    void slotError       (QAbstractSocket::SocketError);   
     void slotConnected   (                            );
 };
 
