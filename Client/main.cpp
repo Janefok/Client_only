@@ -9,8 +9,8 @@ int main(int argc, char *argv[])
     MyClient     client("192.168.1.56", 2323);
     //client.show();
 
-    client.slotSendToServer("asd");
-    client.slotSendToServer("asd");
+    client.slotSendToServer("ХУЙ\ds\sd\sdba\brt\KOrsh");
+    client.slotSendToServer("reyw\ds\sd\sdba\brt\MeinHerzbrennt");
 
     //подключение qml
     QQmlApplicationEngine engine;
