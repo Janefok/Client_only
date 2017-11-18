@@ -16,7 +16,7 @@ TEMPLATE = app
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH = "C:\Qt\5.8\mingw53_32\qml\QtQuick\Controls.2\Material"
-QML_IMPORT_PATH = "."
+QML_IMPORT_PATH = "C:\Users\darkk\Documents\GitHub\Konkurs\Client"
 # Additional import path used to resolve QML modules just for Qt Quick Designer
 #QML_DESIGNER_IMPORT_PATH =
 # The following define makes your compiler emit warnings if you use
