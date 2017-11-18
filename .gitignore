@@ -1,5 +1,8 @@
 *.o
 *.user.*
 *.exe
+Client\Debug
 Client\Debug*
 *.autosave
+*.qmlc
+*.stash
