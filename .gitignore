@@ -2,3 +2,4 @@
 *.user.*
 *.exe
 Client\Debug*
+*.autosave
