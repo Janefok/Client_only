@@ -1,0 +1,4 @@
+*.o
+*.user.*
+*.exe
+Client\Debug*
