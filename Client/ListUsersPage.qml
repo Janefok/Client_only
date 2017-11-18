@@ -1,8 +1,10 @@
 import QtQuick 2.7
 import QtQuick.Layouts 1.3
+import QtQuick.Controls 2.1
 import QtQuick.Controls.Material 2.1
 
 Item{
+    anchors.fill: parent
     ListModel {
        id: dataModel
        ListElement {
@@ -25,11 +27,11 @@ Item{
 
     }
 
+
     Column{
        id: columnList
        width: parent.width
 
-       CenterButton{ }
        //Toolbar
        Rectangle{
            width: parent.width
@@ -42,7 +44,7 @@ Item{
            }
        }
        //List
-       Rectangle{
+        Rectangle{
            color: "#4d4d4d"
            width: parent.width
            height: 400
@@ -53,67 +55,104 @@ Item{
                spacing: 10
                model: dataModel
 
-               delegate: Rectangle {
+               delegate: Button{
+                   id:buttonList
                    width: view.width
                    height: 80
-                   color: 'white'
-                   radius: 10
-                   border.color: "#4d4d4d"
-                   Row{
-                       anchors.fill:parent
+                   background: Rectangle {
+                       color: 'white'
+                       radius: 10
+                       border.color: "#4d4d4d"
+                       Row{
+                           anchors.fill:parent
+                           spacing: 20
+                           anchors.leftMargin: 10
+                           Column{
+                               spacing: 5
+                               Text {
+                                   id: nm
+                                   //anchors.centerIn: parent
+                                   renderType: Text.NativeRendering
+                                   //text: name + "   " + facultet + "    " + sport
+                                   text:name
+                                   font.pixelSize: 14
 
-                       spacing: 20
-                       anchors.leftMargin: 10
-                       Column{
-                           spacing: 5
+                               }
+                               Text {
+                                   id: prN
+                                   //anchors.centerIn: parent
+                                   renderType: Text.NativeRendering
+                                   //text: name + "   " + facultet + "    " + sport
+                                   text:preName
+                                   font.pixelSize: 11
+//                       spacing: 2
+//                       anchors.leftMargin: 10
+//                       Column{
+//                           spacing: 5
+//                           Text {
+//                               id: nm
+//                               //anchors.centerIn: parent
+//                               renderType: Text.NativeRendering
+//                               //text: name + "   " + facultet + "    " + sport
+//                               text:name
+//                               font.pixelSize: 14
+
+                               }
+                               Text {
+                                   id: lN
+                                   //anchors.centerIn: parent
+                                   renderType: Text.NativeRendering
+                                   //text: name + "   " + facultet + "    " + sport
+                                   text:lastName
+                                   font.pixelSize: 11
+
+                               }
+                           }
                            Text {
-                               id: nm
-                               //anchors.centerIn: parent
-                               renderType: Text.NativeRendering
-                               //text: name + "   " + facultet + "    " + sport
-                               text:name
+                               id: fac
+                               //anchors.left: nm.right
+
+                               font.pixelSize: 14
+
+                               text: facultet
+                           }
+                           Text {
+                               id: st
+                               //width: :
+                               //anchors.left: fac.right
+                               text: sport
                                font.pixelSize: 14
 
                            }
-                           Text {
-                               id: prN
-                               //anchors.centerIn: parent
-                               renderType: Text.NativeRendering
-                               //text: name + "   " + facultet + "    " + sport
-                               text:preName
-                               font.pixelSize: 11
 
-                           }
-                           Text {
-                               id: lN
-                               //anchors.centerIn: parent
-                               renderType: Text.NativeRendering
-                               //text: name + "   " + facultet + "    " + sport
-                               text:lastName
-                               font.pixelSize: 11
-
-                           }
-                       }
-                       Text {
-                           id: fac
-                           //anchors.left: nm.right
-
-                           font.pixelSize: 14
-
-                           text: facultet
-                       }
-                       Text {
-                           id: st
-                           //width: :
-                           //anchors.left: fac.right
-                           text: sport
-                           font.pixelSize: 14
-
-                       }
-
-                   }
-                }
-            }
-        }
+                        }//end of Row
+//                   MouseArea{
+//                       anchors.fill: parent
+//                       onClicked: {
+//                           parent.color = "red"
+//                           stackPersonView.push(Qt.resolvedUrl("./icons/ic_equalizer_white_24dp.png"))
+//                       }
+//                   }
+                    }
+                   onClicked: stackUsersPage.push(loader.source="UserPage.qml")
+                }//end of delegate:
+            }//end of ListView
+        }//end of Rectangle
+    }//end of Column (with ToolBar & ListUsersPage)
+    CenterButton{}
+    StackView{
+        id:stackUsersPage
+        initialItem: buttonList
+        anchors.fill: parent
+        focus: true
+        Keys.onReleased: if (event.key === Qt.Key_Back && stackView.depth > 1) {
+                             stackView.pop(loader.source = "UserPage.qml");
+                             event.accepted = true;
+                         }
     }
+    Loader{
+        id:loader
+        anchors.fill: parent
+    }
+
 }

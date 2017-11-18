@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\darkk\Documents\GitHub\Konkurs\Client\android-build\libs\QtAndroid-bundled.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="0c0c47c62b3b7345a6bfe9447ef3afe29df5d430">
+        <dex dex="C:\Users\darkk\Documents\GitHub\Konkurs\Client\android-build\build\intermediates\pre-dexed\debug\QtAndroid-bundled_08bb2cffed054cb9baef7a510dafa21b0034e404.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darkk\Documents\GitHub\Konkurs\Client\android-build\libs\QtPositioning-bundled.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="6f91716e78f93b2ff696bb65e39255400ec0e954">
+        <dex dex="C:\Users\darkk\Documents\GitHub\Konkurs\Client\android-build\build\intermediates\pre-dexed\debug\QtPositioning-bundled_c3bd24c00c3566ae6c0334cda8b8d46402ed5baf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\darkk\Documents\GitHub\Konkurs\Client\android-build\libs\QtAndroidBearer-bundled.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="bc1b53f02af833e625d21813c514ed745366ea47">
+        <dex dex="C:\Users\darkk\Documents\GitHub\Konkurs\Client\android-build\build\intermediates\pre-dexed\debug\QtAndroidBearer-bundled_5b43a528453ac32f4bd9de1591abac284d9082f1.jar" />
+    </item>
+
+</items>

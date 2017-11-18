@@ -21,6 +21,20 @@ ApplicationWindow {
         source: "FeedPage.qml"
     }
 
+    //Toolbar = верхняя панелька с заголовоком страницы, по умолчанию загружается старница "Новости" (текст меняется по нажатию на табы)
+    header: Rectangle{
+                width: parent.width
+                height: 40
+                color: "#4d4d4d"
+                Text {
+                    id: textOnToolbar
+                    text: "Новости"
+                    anchors.centerIn: parent
+                    color: "white"
+                    font.pixelSize : 18
+                  }
+            }
+
     footer: TabButtons{}
 }
 

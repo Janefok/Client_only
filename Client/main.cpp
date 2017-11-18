@@ -1,25 +1,21 @@
 #include <QApplication>
 #include "myclient.h"
 #include <QQmlApplicationEngine>
+#include <userdata.h>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-<<<<<<< HEAD
-    MyClient     client("localhost", 2323);
+    MyClient     client("192.168.1.56", 2323);
 
-    client.slotSendToServer("LOAD/Users");
-=======
-    MyClient     client("127.0.0.1", 2323);
-    //client.show();
-
-    client.slotSendToServer("LOAD/Users");
-
->>>>>>> 7a512f9586f715fb133f4f9e73162baf6a34adce
+    client.slotSendToServer("ХУЙ\ds\sd\sdba\brt\KOrsh");
 
     //подключение qml
     QQmlApplicationEngine engine;
+    qmlRegisterType<UserData>("com.ics.demo", 1, 0, "UserData");
     engine.load(QUrl(QLatin1String("FrameMain.qml")));
+
+
     return a.exec();
 }

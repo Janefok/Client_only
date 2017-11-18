@@ -6,107 +6,85 @@ Item{
     ListModel {
        id: dataModel
        ListElement {
-           color: "white"
-           //text: "first"
-           name: "Alexeev"
-           preName: "Dmitrij"
-           lastName:"Seergeevich"
-           facultet: "IKT"
-           sport: "Tennis"
+           //color: "white"
+           caption: "Команда по гребле одержала победу!"
+           info : " ￼￼￼Первая победа ￼￼￼Наша команда провела первую игру сезона! Соперником была сборная ПМГМУ им И.М.Сеченова. В первом тайме в первые 15 минут наши девочки не были разогреты и пропустили 2 гола.После таких обидно пропущенных мячей команда разозлилась и собралась. Наша команда начала атаковать постоянно и первый тайм закончился со счетом 2:2, в втором тайме наша команда с уверенностью играла и победила со счётом 4:3. победа РХТУ!!!!
+Ближайшая игра в следующую среду(15.11.2017 18:15)с командой МОГУ в КСК.
+
+Спасибо дорогим болельщикам за поддержку! ￼
+Так же поздравляем новичков сборной, желаем уверенности и красивой игры!"
+
        }
        ListElement {
-           name: "Fokina"
-           preName: "Evgenia"
-           lastName:"Alexeevna"
-           facultet: "IKT"
-           sport: "Tennis"
-           color: "white"
+           caption: "Соревнования по кикбоксингу."
+           info: "20 декабря "
+
        }
 
     }
 
     Column{
        id: columnList
-       width: parent.width
-       //Toolbar
+        width: parent.width
+
+       //List - как я поняла это область где рендерится весь список
        Rectangle{
-           width: parent.width
-           height: 40
-           Loader{
-               id:search
-               width: columnList.width
-               anchors.fill: parent
-               source: "SearchData.qml"
-           }
-       }
-       //List
-       Rectangle{
-           color: "#4d4d4d"
+           color: "#e6e6e6"
            width: parent.width
            height: 400
+
+
            ListView {
                id: view
                width: parent.width
                anchors.fill: parent
-               spacing: 10
+               spacing: 2
                model: dataModel
 
                delegate: Rectangle {
                    width: view.width
-                   height: 80
+                   //height: 90
+                   height: nm.contentHeight + prN.contentHeight + 40
+                   //if(nm.)
+                   //contentHeigh:
                    color: 'white'
-                   radius: 10
-                   border.color: "#4d4d4d"
+                   border.color: "#cccccc"
+
                    Row{
                        anchors.fill:parent
-
                        spacing: 20
                        anchors.leftMargin: 10
+                       anchors.rightMargin: 10
+                       anchors.bottomMargin: 10
+                       anchors.topMargin: 10
+                       clip: true
+
+
                        Column{
                            spacing: 5
+
                            Text {
                                id: nm
                                //anchors.centerIn: parent
                                renderType: Text.NativeRendering
                                //text: name + "   " + facultet + "    " + sport
-                               text:name
+                               text: caption
                                font.pixelSize: 14
 
                            }
+                           clip: true
                            Text {
                                id: prN
+                               wrapMode: Text.WordWrap
                                //anchors.centerIn: parent
                                renderType: Text.NativeRendering
                                //text: name + "   " + facultet + "    " + sport
-                               text:preName
-                               font.pixelSize: 11
+                               width: view.width - 10
+                               text: info
+                               //height: text.length * 2
+                               font.pixelSize: 12
 
                            }
-                           Text {
-                               id: lN
-                               //anchors.centerIn: parent
-                               renderType: Text.NativeRendering
-                               //text: name + "   " + facultet + "    " + sport
-                               text:lastName
-                               font.pixelSize: 11
-
-                           }
-                       }
-                       Text {
-                           id: fac
-                           //anchors.left: nm.right
-
-                           font.pixelSize: 14
-
-                           text: facultet
-                       }
-                       Text {
-                           id: st
-                           //width: :
-                           //anchors.left: fac.right
-                           text: sport
-                           font.pixelSize: 14
-
                        }
 
                    }

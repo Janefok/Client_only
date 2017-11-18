@@ -1,0 +1,136 @@
+[
+    {
+        "outputFile": "C:\\Users\\darkk\\Documents\\GitHub\\Konkurs\\Client\\android-build\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 606,
+                    "endColumn": 12,
+                    "endOffset": 83871
+                },
+                "from": {
+                    "file": "C:\\Users\\darkk\\Documents\\GitHub\\Konkurs\\Client\\android-build\\res\\values\\libs.xml",
+                    "position": {
+                        "startLine": 81,
+                        "startColumn": 4,
+                        "startOffset": 5925,
+                        "endLine": 685,
+                        "endColumn": 12,
+                        "endOffset": 89743
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 607,
+                    "startColumn": 4,
+                    "startOffset": 83876,
+                    "endLine": 657,
+                    "endColumn": 12,
+                    "endOffset": 89045
+                },
+                "from": {
+                    "file": "C:\\Users\\darkk\\Documents\\GitHub\\Konkurs\\Client\\android-build\\res\\values\\libs.xml",
+                    "position": {
+                        "startLine": 30,
+                        "startColumn": 4,
+                        "startOffset": 748,
+                        "endLine": 80,
+                        "endColumn": 12,
+                        "endOffset": 5919
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 658,
+                    "startColumn": 4,
+                    "startOffset": 89050,
+                    "endLine": 660,
+                    "endColumn": 12,
+                    "endOffset": 89099
+                },
+                "from": {
+                    "file": "C:\\Users\\darkk\\Documents\\GitHub\\Konkurs\\Client\\android-build\\res\\values\\libs.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 661,
+                    "startColumn": 4,
+                    "startOffset": 89104,
+                    "endLine": 676,
+                    "endColumn": 13,
+                    "endOffset": 89482
+                },
+                "from": {
+                    "file": "C:\\Users\\darkk\\Documents\\GitHub\\Konkurs\\Client\\android-build\\res\\values\\libs.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 677,
+                    "startColumn": 4,
+                    "startOffset": 89487,
+                    "endLine": 679,
+                    "endColumn": 12,
+                    "endOffset": 89597
+                },
+                "from": {
+                    "file": "C:\\Users\\darkk\\Documents\\GitHub\\Konkurs\\Client\\android-build\\res\\values\\libs.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 680,
+                    "startColumn": 4,
+                    "startOffset": 89602,
+                    "endColumn": 107,
+                    "endOffset": 89705
+                },
+                "from": {
+                    "file": "C:\\Qt\\5.9.2\\android_armv7\\src\\android\\java\\res\\values\\strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 681,
+                    "startColumn": 4,
+                    "startOffset": 89710,
+                    "endColumn": 121,
+                    "endOffset": 89827
+                },
+                "from": {
+                    "file": "C:\\Qt\\5.9.2\\android_armv7\\src\\android\\java\\res\\values\\strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 682,
+                    "startColumn": 4,
+                    "startOffset": 89832,
+                    "endColumn": 111,
+                    "endOffset": 89939
+                },
+                "from": {
+                    "file": "C:\\Qt\\5.9.2\\android_armv7\\src\\android\\java\\res\\values\\strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 683,
+                    "startColumn": 4,
+                    "startOffset": 89944,
+                    "endColumn": 84,
+                    "endOffset": 90024
+                },
+                "from": {
+                    "file": "C:\\Qt\\5.9.2\\android_armv7\\src\\android\\java\\res\\values\\strings.xml"
+                }
+            }
+        ]
+    }
+]

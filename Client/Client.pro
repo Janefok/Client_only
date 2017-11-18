@@ -15,11 +15,6 @@ TARGET = Client
 TEMPLATE = app
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
-<<<<<<< HEAD
-=======
-QML_IMPORT_PATH = "C:\Qt\5.8\mingw53_32\qml\QtQuick\Controls.2\Material"
-QML_IMPORT_PATH = "."
->>>>>>> 7a512f9586f715fb133f4f9e73162baf6a34adce
 # Additional import path used to resolve QML modules just for Qt Quick Designer
 #QML_DESIGNER_IMPORT_PATH =
 # The following define makes your compiler emit warnings if you use
@@ -37,11 +32,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    myclient.cpp
+    myclient.cpp \
+    userdata.cpp
 
 HEADERS += \
         mainwindow.h \
-    myclient.h
+    myclient.h \
+    parsejson.h \
+    userdata.h
 
 FORMS += \
         mainwindow.ui
@@ -49,23 +47,38 @@ FORMS += \
 
 
 DISTFILES += \
+    MenuBar.qml \
     PersonMenu.qml \
-<<<<<<< HEAD
     ListViewMenu.qml \
     mainWindow.qml \
     SearchData.qml \
-    TabButtons.qml
-
-=======
-    SearchData.qml \
     TabButtons.qml \
-    ListUsersPage.qml \
-    FrameMain.qml \
-    CenterButton.qml \
     FeedPage.qml \
-    StatisticsPage.qml
->>>>>>> 382ad1855b6c869e9492bb248a6722ea5a0eec12
+    FrameMain.qml \
+    ListUsersPage.qml \
+    StatisticsPage.qml \
+    CenterButton.qml \
+    UserPage.qml
 
-QML_IMPORT_PATH = "D:\Qt\5.8\mingw53_32\qml\QtQuick\Controls.2\Material"
-QML_IMPORT_PATH = "D:\Konkurs\Client"
+QML_IMPORT_PATH = "С:\Qt\5.8\mingw53_32\qml\QtQuick\Controls.2\Material"
+QML_IMPORT_PATH = "C:\Users\darkk\Documents\GitHub\Konkurs\Client"
+QML_IMPORT_PATH = "C:\Qt\5.9.2\android_armv7\qml\QtQuick\Controls.2\Material"
+QML_IMPORT_PATH = "C:\Qt\5.9.2\android_armv7\qml\QtQuick\Extras"
+QML_IMPORT_PATH = "C:\Qt\5.9.2\android_armv7\qml\QtQuick\Controls"
+
+QML_IMPORT_PATH = "C:\Qt\5.9.2\android_x86\qml\QtQuick\Extras"
+QML_IMPORT_PATH = "C:\Qt\5.9.2\android_x86\qml\QtQuick\Controls"
+QML_IMPORT_PATH = "C:\Qt\5.9.2\android_x86\qml\QtQuick\Controls.2\Material"
+
+DISTFILES +=
+android-build/gradle/wrapper/gradle-wrapper.jar
+android-build/AndroidManifest.xml
+android-build/res/values/libs.xml
+android-build/build.gradle
+android-build/gradle/wrapper/gradle-wrapper.properties
+android-build/gradlew
+android-build/gradlew.bat
+ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android-build
+
+
 
