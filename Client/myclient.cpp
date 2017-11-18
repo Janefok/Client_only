@@ -6,13 +6,18 @@
 #include <QLabel>
 #include <QTime>
 #include <QQmlApplicationEngine>
+#include <QString>
 
 
-MyClient::MyClient(const QString& strHost,
-                   int            nPort,
-                   QWidget*       pwgt /*=0*/
-                  ) : QWidget(pwgt)
-                    , m_nNextBlockSize(0)
+//json
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonValue>
+#include <QJsonArray>
+
+
+
+MyClient::MyClient(const QString& strHost, int nPort, QWidget* pwgt) : QWidget(pwgt), m_nNextBlockSize(0)
 {
     //подключение qml
     //QQmlApplicationEngine engine;
@@ -48,24 +53,96 @@ MyClient::MyClient(const QString& strHost,
 
 void MyClient::slotReadyRead()
 {
-    QDataStream in(m_pTcpSocket);
-    in.setVersion(QDataStream::Qt_4_2);
+    QDataStream inp(m_pTcpSocket);
+    inp.setVersion(QDataStream::Qt_4_2);
     for (;;) {
         if (!m_nNextBlockSize) {
             if (m_pTcpSocket->bytesAvailable() < sizeof(quint16)) {
                 break;
             }
-            in >> m_nNextBlockSize;
+            inp >> m_nNextBlockSize;
         }
 
         if (m_pTcpSocket->bytesAvailable() < m_nNextBlockSize) {
             break;
         }
+        QString str, jsonStr;
+        //без тайма не работает, пиздец магия
         QTime   time;
-        QString str;
-        in >> time >> str;
+        inp >> time >> jsonStr;
+//        qDebug() << str2;
+//        qDebug() << QString(inp);
+//        inp >> time >> str;
 
-         qDebug() << (time.toString() + " " + str);
+///////////////////////////////////////////////////////////////////////////
+/// щас диван буит резвицца
+///////////////////////////////////////////////////////////////////////////
+
+
+        //почему мы сюда два раза приходим?
+        QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonStr.toUtf8());
+        QJsonArray jsonArr = jsonDoc.array();
+
+        if (jsonArr.size() != 0){
+
+            //вывести первый элемент нашего массива, первую строку по идее
+            qDebug() << jsonArr[0] <<"\n";
+
+            //преобразуем ее в отдельный объект
+            QJsonObject jsonObj = jsonArr[0].toObject();
+            qDebug() << jsonObj << "\n";
+            //объект можно сделать мапой
+            qDebug() << jsonObj.toVariantMap() << "\n";
+            QVariantMap jsonMap = jsonObj.toVariantMap();
+            //попробуем проитерировать эту мапу
+            QMapIterator<QString, QVariant> i(jsonMap);
+            while (i.hasNext()) {
+                i.next();
+                qDebug() << i.key() << ": " << i.value();
+            }
+            qDebug() << "\n\n";
+
+            //а теперь пройдем сначала по строкам, потом по полям в каждой строке
+            foreach (const QJsonValue & value, jsonArr) {
+                jsonMap = value.toObject().toVariantMap();
+                QMapIterator<QString, QVariant> i(jsonMap);
+                while (i.hasNext()) {
+                    i.next();
+                    //сделаем из вэрианта стринг
+                    qDebug() << i.key() << ":" << i.value().toString();
+                }
+                qDebug() << "\n";
+            }
+
+            //теперь бы неплохо это говнецо упаковать так, шоб соотвеццтвовать
+            //a пока что просто выведу как выгледит jsonArray и его элемент приведенный к типу объекта
+            qDebug() << jsonArr << "\n";
+            qDebug() << jsonArr[0].toObject();
+
+
+
+
+
+
+        }
+
+///////////////////////////////////////////////////////////////////////////
+/// диван кончил
+///////////////////////////////////////////////////////////////////////////
+
+
+
+//        qDebug() << jsonStr;
+//        qDebug() << jsonDoc;
+//        qDebug() << jsonObj;
+
+//        QJsonValue jsonVal = jsonObj.value(QString(""));
+
+//        QJsonArray jsonArr = jsonVal.toArray();
+//        qDebug() << jsonArr.size() + 1;
+//        qDebug() << jsonArr[1].toString();
+
+//         qDebug() << (time.toString() + " " + jsonStr);
         m_nNextBlockSize = 0;
     }
 }
@@ -95,6 +172,7 @@ void MyClient::slotSendToServer(QString str)
     out << quint16(arrBlock.size() - sizeof(quint16));
 
     m_pTcpSocket->write(arrBlock);
+    qDebug() << QString(arrBlock);
 }
 
 void MyClient::slotConnected()
