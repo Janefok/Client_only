@@ -22,11 +22,14 @@ Item{
            sport: "Tennis"
            color: "white"
        }
+
     }
 
     Column{
        id: columnList
        width: parent.width
+
+       CenterButton{ }
        //Toolbar
        Rectangle{
            width: parent.width

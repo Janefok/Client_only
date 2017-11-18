@@ -20,10 +20,28 @@ ApplicationWindow {
         width: parent.width
         source: "ListViewMenu.qml"
     }
+    RoundButton{
+        id:addPersons
+        //anchors.fill: parent
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        anchors.bottomMargin: 5
+        anchors.rightMargin: 5
+        anchors.horizontalCenter: parent.footer
+        //radius: 10
+//        background: Rectangle{
+//            //radius:10
+//            color: "lightblue"
+//        }
+//        style:ButtonStyle{
+//            color:"lightblue"
+//        }
+    }
 
     footer: TabBar{
         id: tabBar
         width: parent.width
+        spacing: 0
         TabButton{
             text: "First"
         }
@@ -31,7 +49,7 @@ ApplicationWindow {
             text: "Second"
         }
         NewTabButton{
-            text: "test"
+            //text: "test"
         }
         onCurrentIndexChanged: {
             switch (currentIndex)
