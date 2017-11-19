@@ -4,42 +4,44 @@
 #include <QObject>
 #include <QtQuick/QQuickItem>
 
-class UserData : public QObject
+#include <QAbstractListModel>
+#include <QStringList>
+
+class UserData
 {
-    Q_OBJECT
-
-    Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
-//    Q_PROPERTY(QString preName READ preName WRITE setPreName NOTIFY preNameChanged)
-//    Q_PROPERTY(QString lastName READ lastName WRITE setLastName NOTIFY lastNameChanged)
-//    Q_PROPERTY(QString facultet READ facultet WRITE setFacultet NOTIFY facultetChanged)
-//    Q_PROPERTY(QString sport READ sport WRITE setSport NOTIFY sportChanged)
-
 public:
-    explicit UserData();
+    UserData(const QString &type, const QString &size);
 
-    QString name();
-    void setName(const QString &n);
-
-//    QString preName();
-//    void preName(const QString &p);
-
-//    QString lastName();
-//    void lastName(const QString &l);
-
-//    QString facultet();
-//    QString sport(const QString &s);
-
-public slots:
-    void getTeam();
-
-signals:
-    void nameChanged();
-    void nameGenerated(bool succes);
+    QString type() const;
+    QString size() const;
 
 private:
-    QString _name;
-
+    QString m_type;
+    QString m_size;
 };
 
+class UserDataModel : public QAbstractListModel
+{
+    Q_OBJECT
+    //Q_PROPERTY(QQmlListProperty<Element> data READ data NOTIFY dataChanged)
+public:
+    enum UserRoles {
+        TypeRole = Qt::UserRole + 1,
+        SizeRole
+    };
+
+    UserDataModel(QObject *parent = 0);
+
+    void addUsers(const UserData &userd);
+
+    int rowCount(const QModelIndex & parent = QModelIndex()) const;
+
+    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+
+protected:
+    QHash<int, QByteArray> roleNames() const;
+private:
+    QList<UserData> m_users;
+};
 
 #endif // USERDATA_H

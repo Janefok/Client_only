@@ -3,46 +3,13 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Styles 1.4
 import com.ics.demo 1.0
 
-Rectangle {
-    id: rect
-    width: parent.width; height: parent.height
-    color: "#4d4d4d"
-    Column{
-//    Text{
-//        Column{
-//            Row{
-//                Text{
-//                    text: " Фамилия"
-//                }
-//                TextField{
-//                    name: ""
-//                }
-//            }
-//        }
-//    }
+Rectangle{
+    anchors.fill: parent
+    height: parent.height
+    ListView {
+        width: parent.width; height: parent.height
 
-//    NumberAnimation on opacity {
-//        to: 0
-//        duration: 1000
-
-//        onRunningChanged: {
-//            if (!running) {
-//                console.log("Destroying...")
-//                rect.destroy();
-//            }
-//        }
-//    }
-        UserData{
-            id: userdata
-
-            name: "IUOIUOUOU"
-        }
-        Text{
-            text: "ksKKKKKKKKKKK"
-        }
-        Button{
-            onClicked: userdata.setName()
-        }
-
+        model: UserData
+        delegate: Text { text: "Last Name: " + type + ", " + size }
     }
 }
